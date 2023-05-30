@@ -15,10 +15,13 @@
       </div>
       <div class="col-6 text-left">
         <input type="text" name="txt-adn" id="txt-adn" class="txt-adn-input" [(ngModel)]="stringAdn" (keyup)="validateAdn(stringAdn)">
+        <span class="txt-example">Ejemplo: ATGCGA,AAGTGC,ATACAT,TGAATG,CCCATA,TCACTG  sin comillas</span>
       </div>
-      <div class="col-7 text-center px-0 py-3" *ngIf="isMutant">
-        <span *ngIf="isMutant">Mutante</span>
-        <span *ngIf="!(isMutant)">No-Mutante</span>
+      <div class="col-1 text-left">
+        <button class="btn btn-primary" (click)="isMutant()">Verificar</button>
+      </div>
+      <div class="col-7 text-center px-0 py-3">
+        <span *ngIf="hasAdnMutant">{{message}}</span>
       </div>
       <div class="col-7 text-center px-0 py-3" *ngIf="StringAdnPerfect === false">
         <span>La cadena de adn no es cuadrada o no contiene los caracteres requeridos (A, C, T, G)</span>
